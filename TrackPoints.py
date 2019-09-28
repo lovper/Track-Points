@@ -4,6 +4,18 @@ from tkinter import *
 
 h = 600
 w = 800
+top = Tk()
+top.title('Title')
+
+
+class NewFrame:
+    def __init__(self, window):
+        self.window = window
+        self.frame = Frame(self.window, height=h, width=w)
+
+    def create(self):
+        self.frame.grid()
+        self.frame.grid_propagate(0)
 
 
 def start():
@@ -15,13 +27,10 @@ def start():
         os.mkdir(path)
 
 
-top = Tk()
-top.title('Title')
-
 start()
 
-homeFrame = Frame(top, height=h, width=w)
-homeFrame.pack()
-homeFrame.pack_propagate(0)
+home = NewFrame(top)
+home.create()
+
 
 mainloop()
