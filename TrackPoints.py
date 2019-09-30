@@ -11,11 +11,19 @@ top.title('Title')
 class NewFrame:
     def __init__(self, window):
         self.window = window
+        self.butn = Button(self.window)
         self.frame = Frame(self.window, height=h, width=w)
 
     def create(self):
         self.frame.grid()
         self.frame.grid_propagate(0)
+
+    def btn(self, name):
+        self.butn = Button(self.window, text=name, command=name+'()')
+        self.butn.grid()
+
+    def clear(self):
+        self.window.destroy()
 
 
 def start():
@@ -31,6 +39,8 @@ start()
 
 home = NewFrame(top)
 home.create()
+home.btn('test')
+
 
 
 mainloop()
